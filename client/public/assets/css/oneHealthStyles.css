@@ -1,0 +1,719 @@
+/*Style Sheet for oneHealth*/
+/*Written by Hemant Dutta*/
+/*https://github.com/HemantDutta*/
+
+/*Z-index Chart*/
+/*Navbar: 1000*/
+/*bigMenu: 999*/
+/*Z-index Chart End*/
+
+:root {
+    --accent-color: #9ee3ff;
+    --accent-color2: #9fcaff;
+    --accent-color3: #9cfdff;
+    --accent-color4: #efdcb0;
+    --text-font-size: calc(15px + 0.34vw);
+    --bg-color: #FFEEBB
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+/*Scrollbar*/
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #577a8a;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.accent-color {
+    color: var(--accent-color);
+}
+
+.accent-color2 {
+    color: var(--accent-color2);
+}
+
+.accent-color3 {
+    color: var(--accent-color3);
+}
+
+.accent-color4 {
+    color: var(--accent-color4);
+}
+
+/*Common CSS*/
+
+.hover-btn {
+    padding: 10px 24px;
+    font-weight: bold;
+    color: white;
+    background-color: #4bcdff;
+    border: none;
+    box-shadow: -5px 5px black;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.hover-btn:hover {
+    box-shadow: -8px 8px black;
+    background-color: #3ba9d3;
+}
+
+.head-font {
+    font-family: 'Preahvihear', sans-serif;
+}
+
+/*Common CSS End*/
+
+
+/*==========Navbar==========*/
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+nav .navbar-inner-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+nav .navbar-inner-container > * {
+    flex: 1;
+}
+
+nav .navbar-inner-container .navbar-logo img {
+    height: 60px;
+}
+
+nav .navbar-inner-container .navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2rem;
+}
+
+nav .navbar-inner-container .navbar-links a {
+    text-decoration: none;
+    color: #111;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    font-size: 18px;
+}
+
+nav .navbar-inner-container .navbar-links a:hover {
+    color: gray;
+}
+
+nav .navbar-inner-container .navbar-join-btn {
+    text-align: right;
+}
+
+nav .navbar-inner-container .navbar-join-btn button {
+    padding: 10px 24px;
+    font-weight: bold;
+    color: white;
+    background-color: #4bcdff;
+    border: none;
+    box-shadow: -5px 5px black;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+nav .navbar-inner-container .navbar-join-btn button:hover {
+    box-shadow: -8px 8px black;
+    background-color: #3ba9d3;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option {
+    display: none;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option .hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option .hamburger span {
+    background-color: #111;
+    height: 2px;
+    width: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option .hamburger span:nth-child(1) {
+    width: 12px;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option .hamburger span:nth-child(3) {
+    width: 18px;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option .hamburger.clicked span {
+    width: 20px;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option .hamburger.clicked span:nth-child(2) {
+    display: none;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option .hamburger.clicked span:nth-child(1) {
+    rotate: 45deg;
+}
+
+nav .navbar-inner-container .navbar-hamburger-option .hamburger.clicked span:nth-child(3) {
+    rotate: -45deg;
+    transform: translate(5px, -5px);
+}
+
+
+@media screen and (max-width: 991px) {
+    nav .navbar-inner-container .navbar-links {
+        display: none;
+    }
+
+    nav .navbar-inner-container .navbar-join-btn button {
+        display: none;
+    }
+
+    nav .navbar-inner-container .navbar-hamburger-option {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    nav .navbar-inner-container .navbar-logo img {
+        height: 50px;
+    }
+
+    nav {
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 315px) {
+    nav .navbar-inner-container .navbar-logo img {
+        height: 35px;
+    }
+}
+
+/*==========Navbar End==========*/
+
+/*==========Big Menu==========*/
+
+.bigMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 999;
+    transition: all 0.4s cubic-bezier(.17, .67, .67, .86);
+    height: 0;
+    opacity: 0;
+}
+
+.bigMenu.opened {
+    height: 100vh;
+    opacity: 1;
+}
+
+.bigMenu .bigMenu-container {
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 1rem;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.bigMenu .bigMenu-container .bigMenu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    transition: all 0.2s ease;
+}
+
+.bigMenu .bigMenu-container .bigMenu-item:hover .item-text {
+    color: gray;
+}
+
+.bigMenu .bigMenu-container .bigMenu-item {
+    font-size: 56px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bigMenu .bigMenu-container .bigMenu-item i {
+    opacity: 0;
+    transition: all 0.2s ease;
+    transform: rotate(90deg);
+}
+
+.bigMenu .bigMenu-container .bigMenu-item:hover i {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+@media screen and (max-width: 420px) {
+    .bigMenu .bigMenu-container .bigMenu-item {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .bigMenu .bigMenu-container .bigMenu-item .item-text {
+        font-size: 32px;
+    }
+}
+
+/*==========Big Menu End==========*/
+
+/*==========Home -> Hero==========*/
+
+.home-container .hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(-45deg, #9AC5F4, #99DBF5, #A7ECEE, #FFEEBB);
+    background-size: 200% 200%;
+    -webkit-animation: heroGradient 10s ease infinite;
+    -moz-animation: heroGradient 10s ease infinite;
+    animation: heroGradient 10s ease infinite;
+    border-bottom-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+}
+
+@-webkit-keyframes heroGradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes heroGradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes heroGradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+.home-container .hero .hero-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 3rem;
+    gap: 2rem;
+}
+
+.home-container .hero .hero-content .hero-left {
+    flex-basis: 55%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.home-container .hero .hero-content .hero-left .hero-left-head {
+    font-size: 56px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 0 40px 0 40px;
+    transition: all 0.2s ease-in;
+}
+
+.home-container .hero .hero-content .hero-left .hero-left-head:hover {
+    border-radius: 40px;
+}
+
+.home-container .hero .hero-content .hero-left .hero-left-tag {
+    font-size: 18px;
+    color: #808080;
+}
+
+.home-container .hero .hero-content .hero-left .hero-left-cta button {
+    background-color: #fff;
+    color: black;
+}
+
+.home-container .hero .hero-content .hero-right {
+    flex-basis: 45%;
+    padding-right: 3rem;
+}
+
+.home-container .hero .hero-content .hero-right .hero-right-img {
+    position: relative;
+    text-align: center;
+}
+
+.home-container .hero .hero-content .hero-right .hero-right-img img {
+    position: relative;
+    height: 520px;
+    width: 410px;
+    object-fit: contain;
+    border-radius: 40px;
+    z-index: 110;
+}
+
+.home-container .hero .hero-content .hero-right .hero-right-img .hovering-msg:nth-child(2) {
+    position: absolute;
+    background-color: #fff;
+    top: 30%;
+    left: 10%;
+    font-size: 20px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 20px;
+    border-top: 10px solid var(--accent-color4);
+    z-index: 111;
+}
+
+.home-container .hero .hero-content .hero-right .hero-right-img .hovering-msg:nth-child(3) {
+    position: absolute;
+    background-color: #fff;
+    bottom: 30%;
+    right: 55px;
+    font-size: 20px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 20px;
+    border-top: 10px solid var(--accent-color3);
+    z-index: 111;
+}
+
+@media screen and (max-width: 1091px) {
+    .home-container .hero .hero-content .hero-left .hero-left-head {
+        font-size: 36px;
+    }
+}
+
+/*==========Home -> Hero End==========*/
+
+/*==========Navbar -> Join Now==========*/
+
+.joinNow {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    height: 100vh;
+    width: 100%;
+    z-index: 1005;
+    background-color: rgba(21, 21, 21, 0.8);
+    display: none;
+    place-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.joinNow.opened {
+    opacity: 1;
+}
+
+.joinNow .joinNow-content {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: -10px 10px black;
+    transition: all 0.4s ease;
+}
+
+.joinNow .joinNow-content #loginForm {
+    display: none;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.joinNow .joinNow-content #regForm {
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.joinNow .joinNow-content #loginForm.active, .joinNow .joinNow-content #regForm.active {
+    opacity: 1;
+}
+
+.joinNow .joinNow-content .login-form-header {
+    padding: 10px;
+    text-align: center;
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.joinNow .joinNow-content .login-form-tag {
+    font-size: 20px;
+    color: grey;
+    margin-bottom: 25px;
+}
+
+.joinNow .joinNow-content form .input-field {
+    position: relative;
+    margin: 30px 0;
+}
+
+.joinNow .joinNow-content form .input-field input {
+    background-color: #e8f1f1;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    font-size: 20px;
+}
+
+.joinNow .joinNow-content form .input-field label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    transition: all 0.2s ease;
+    padding: 0 10px;
+}
+
+.joinNow .joinNow-content form .input-field:focus-within label {
+    transform: translateY(-175%);
+    background-color: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+.joinNow .joinNow-content form .btn-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.joinNow .joinNow-content form .btn-field span {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.joinNow .joinNow-content form .btn-field span:hover {
+    color: var(--accent-color2);
+}
+
+/*==========Navbar -> Join Now End==========*/
+
+/*==========Diagnose==========*/
+
+.diagnose {
+    background: linear-gradient(-45deg, #9AC5F4, #99DBF5, #A7ECEE, #FFEEBB);
+    background-size: 200% 200%;
+    -webkit-animation: heroGradient 10s ease infinite;
+    -moz-animation: heroGradient 10s ease infinite;
+    animation: heroGradient 10s ease infinite;
+}
+
+.diagnose .diagnose-gradient-bar {
+    height: 200px;
+    width: 100%;
+}
+
+.diagnose .diagnose-content {
+    background-color: #fff;
+    border-radius: 80px 80px 0 0;
+    padding: 2rem;
+}
+
+.diagnose .diagnose-content .diagnose-model-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+}
+
+.diagnose .diagnose-content .diagnose-model-bar .model-chip {
+    padding: 10px 24px;
+    background-color: #fff;
+    box-shadow: -5px 5px black;
+    border: 1px solid black;
+    transition: all 0.2s ease;
+    font-size: 20px;
+}
+
+.diagnose .diagnose-content .diagnose-model-bar .model-chip:hover {
+    background-color: #e1e1e1;
+    box-shadow: -8px 8px black;
+    transform: scale(105%);
+}
+
+.diagnose .diagnose-content .diagnose-model-bar .model-chip.active {
+    background-color: var(--accent-color3);
+}
+
+.diagnose .diagnose-content .tumor-model-content, .diagnose .diagnose-content .heart-model-content {
+    margin-top: 5rem;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.4s ease;
+    opacity: 0;
+    display: none;
+}
+
+
+.diagnose .diagnose-content .model-header span {
+    font-size: 56px;
+}
+
+.diagnose .diagnose-content .model-des span {
+    font-size: 20px;
+    color: grey;
+}
+
+.diagnose .diagnose-content .model-form{
+    margin: 2rem 0 0 0;
+}
+
+.diagnose .diagnose-content .tumor-model-content .model-form input{
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid black;
+    font-size: 20px;
+    box-shadow: -5px 5px black;
+}
+
+.diagnose .diagnose-content .model-result{
+    margin-top: 3rem;
+}
+
+.diagnose .diagnose-content .model-result span{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.diagnose .diagnose-content .activeModel{
+    opacity: 1;
+    display: block;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form{
+    width: 650px;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .input-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .input-row .input-field{
+    position: relative;
+    margin: 20px 0;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .input-row .input-field input{
+    background-color: #e8f1f1;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    font-size: 20px;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .input-row .input-field select{
+    padding: 10px;
+    height: 55px;
+    width: 275px;
+    font-size: 16px;
+    background-color: #e8f1f1;
+    border: none;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .input-row .input-field .full-select{
+    width: 585px;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .input-row .input-field label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: all 0.2s ease;
+    padding: 0 10px;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .input-row .input-field:focus-within label{
+    transform: translateY(-175%);
+    background-color: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .btn-field{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.diagnose .diagnose-content .heart-model-content .model-form .btn-field button{
+    background-color: #fff;
+    border: 1px solid black;
+    color: black;
+}
+/*==========Diagnose End==========*/
